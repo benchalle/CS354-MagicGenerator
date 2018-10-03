@@ -82,14 +82,20 @@ Square * generate_magic(int n)
 	square = malloc(sizeof(Square)); //allocate memory for the struct
 	if(square = NULL){
 		printf("Error, memory not allocated");
+		exit(EXIT_FAILURE);
 	}
 	array = malloc(sizeof(int*)*n); // allocate memory for the array
 	if(array = NULL){
 		printf("Error, memory not allocated");
+		exit(EXIT_FAILURE);
 	}
 	square->size = n; //save the size to the struct
 	for(int x=0; x<n; x++){
 		*(array + x) = malloc(sizeof(int)*n); // for desired size of matrix allocate the memory
+		if(*(array + x) == NULL){
+			printf("Error, memory not allocated");
+			exit(EXIT_FAILURE);
+		}	
 	}
 	int start = n/2; //set the starting position of algorithm
 	int end = n*n; //set the ending position of algorithm
