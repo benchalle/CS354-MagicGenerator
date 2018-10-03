@@ -80,7 +80,13 @@ Square * generate_magic(int n)
 	Square *square; //initialize pointer to square struct
 	int **array; //initialize a double pointer to an array
 	square = malloc(sizeof(Square)); //allocate memory for the struct
+	if(square = NULL){
+		printf("Error, memory not allocated");
+	}
 	array = malloc(sizeof(int*)*n); // allocate memory for the array
+	if(array = NULL){
+		printf("Error, memory not allocated");
+	}
 	square->size = n; //save the size to the struct
 	for(int x=0; x<n; x++){
 		*(array + x) = malloc(sizeof(int)*n); // for desired size of matrix allocate the memory
