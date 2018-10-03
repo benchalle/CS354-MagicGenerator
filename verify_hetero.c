@@ -71,6 +71,7 @@ Square * construct_square(char *filename)
 	sqptr = malloc(sizeof(Square));		//allocate the memory for the square
 	if(sqptr = NULL){
 		printf("Error, memory not allocated");
+		exit(EXIT_FAILURE);
 	}
 	FILE *file; //initialize file pointer
 	int err; //initialize error variable
@@ -89,9 +90,14 @@ Square * construct_square(char *filename)
 		array = malloc(sizeof(int*)*sizeOfSquare); //allocate memory for an array with the size inputed
 		if(array = NULL){
 			printf("Error, memory not allocated");
+			exit(EXIT_FAILURE);
 		}
 		for(x=0; x< sizeOfSquare; x++){ //allocate each column
 		*(array + x) = malloc(sizeof(int)*sizeOfSquare);
+		if(*(array+x) = NULL){
+			printf("Error, memory not allocated");
+			exit(EXIT_FAILURE);
+		}
 		}
 		x=0;
 		char *elements;
