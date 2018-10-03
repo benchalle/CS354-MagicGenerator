@@ -69,6 +69,9 @@ Square * construct_square(char *filename)
 	char buff[BUFFSIZE];  //create an array with buffer size
 	Square *sqptr; //create a pointer to a square struct
 	sqptr = malloc(sizeof(Square));		//allocate the memory for the square
+	if(sqptr = NULL){
+		printf("Error, memory not allocated");
+	}
 	FILE *file; //initialize file pointer
 	int err; //initialize error variable
 	int x,y; //initialize counters
@@ -84,7 +87,9 @@ Square * construct_square(char *filename)
 
 		sqptr->size = sizeOfSquare; // save the size of square in struct
 		array = malloc(sizeof(int*)*sizeOfSquare); //allocate memory for an array with the size inputed
-		
+		if(array = NULL){
+			printf("Error, memory not allocated");
+		}
 		for(x=0; x< sizeOfSquare; x++){ //allocate each column
 		*(array + x) = malloc(sizeof(int)*sizeOfSquare);
 		}
